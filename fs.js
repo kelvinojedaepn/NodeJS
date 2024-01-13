@@ -17,7 +17,7 @@ fs.readFile("./data/data03.txt", (err, data) => {
     if (err) {
         console.log(err)
     } else {
-        console.log(data.toString())
+        console.log("Read file without promise ", data.toString())
     }
 })
 
@@ -31,11 +31,12 @@ const readFile = new Promise((resolve, reject) => {
         })
     })
     .then((data) => {
-        console.log(data)
+        return data
     })
     .catch((err) => {
-        console.log(err)
+        return err
     })
+console.log("Read file with Promise ", readFile);
 
 // console.log(
 //     "Con promesa: ",
